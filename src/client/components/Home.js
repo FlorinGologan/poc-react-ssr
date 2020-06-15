@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 const Home = () => {
-  return <div>This is the homepage</div>;
-}
+  return (
+    <div>
+      <div>This is the homepage</div>
+      <button onClick={ () => console.log('Button clicked') }>Click</button>
+    </div>
+  );
+};
 
 export default Home;
