@@ -20,11 +20,10 @@ class ProductsListPage extends Component {
   render () {
     return (
       <div>
-        <h1>Products:</h1>
+        <h1>Products</h1>
         <ul>
           { this.renderProducts() }
         </ul>
-
       </div>
     );
   }

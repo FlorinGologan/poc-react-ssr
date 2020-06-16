@@ -18,7 +18,7 @@ export default [
       },
       {
         path: '/test',
-        component: () => 'Test route',
+        component: () => <h1>Test route</h1>,
       }
     ]
   }

@@ -9,3 +9,13 @@ export const fetchProducts = () => async dispatch => {
     payload: res
   });
 };
+
+export const FETCH_MENU = 'fetch_menu';
+export const fetchMenu = () => async dispatch => {
+  const res = await axios.get('http://localhost:3000/api/menu.json');
+
+  dispatch({
+    type: FETCH_MENU,
+    payload: res
+  });
+};

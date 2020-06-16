@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default () => {
-  return (
-    <div>
-      <Link to='/'>Home</Link> |
-      <Link to='/products'>Products</Link> |
-      <Link to='/test'>Test</Link>
-    </div>
-  );
+class Header extends Component {
+  renderMenu () {
+    return this.props.menu.map((item, index) => {
+      return (
+        <li className="nav-item" key={ index }>
+          <Link className="nav-link" to={ item.url }>{ item.title }</Link>
+        </li>
+      );
+    });
+  }
+
+  render () {
+    return (
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <ul className="navbar-nav mr-auto">
+          { this.renderMenu() }
+        </ul>
+      </nav>
+    );
+  }
 }
+
+function mapStateToProps ({menu}) {
+  return {menu};
+}
+
+export default connect(mapStateToProps)(Header);

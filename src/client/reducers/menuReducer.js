@@ -1,8 +1,8 @@
-import { FETCH_PRODUCTS } from '../actions';
+import { FETCH_MENU } from '../actions';
 
 export default (state = [], action) => {
   switch (action.type) {
-    case FETCH_PRODUCTS:
+    case FETCH_MENU:
       return action.payload.data;
     default:
       return state;
