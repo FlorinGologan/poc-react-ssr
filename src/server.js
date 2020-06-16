@@ -11,8 +11,9 @@ const app = express();
 app.use(express.static('public'));
 app.use('/api', express.static('api'));
 app.get('*', (req, res) => {
-  const store = createStore();
+  console.log('Server side request for: ', req.path);
 
+  const store = createStore();
   const promises = matchRoutes(Routes, req.path).map(({route}) => {
     return route.loadData ? route.loadData(store) : null;
   });
