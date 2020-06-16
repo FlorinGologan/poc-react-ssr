@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../actions';
 
-class ProductsList extends Component {
+class ProductsListPage extends Component {
   componentDidMount () {
     this.props.fetchProducts();
   }
@@ -36,4 +36,11 @@ function mapStateToProps (state) {
   };
 }
 
-export default connect(mapStateToProps, {fetchProducts})(ProductsList);
+function loadData (store) {
+  return store.dispatch(fetchProducts());
+}
+
+export default {
+  loadData,
+  component: connect(mapStateToProps, {fetchProducts})(ProductsListPage)
+};
