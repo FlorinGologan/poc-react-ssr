@@ -15,7 +15,7 @@ class Header extends Component {
 
   render () {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-light bg-info">
         <ul className="navbar-nav mr-auto">
           { this.renderMenu() }
         </ul>
