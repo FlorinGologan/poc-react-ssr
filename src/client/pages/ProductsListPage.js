@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../actions';
+import { Helmet } from 'react-helmet';
 
 class ProductsListPage extends Component {
   componentDidMount () {
@@ -17,9 +18,20 @@ class ProductsListPage extends Component {
     });
   }
 
+  head () {
+    return (
+      <Helmet>
+        <title>SSR POC - Products Page</title>
+        <meta property="og:title" content="Products Page"/>
+        <meta property="og:description" content={ `${ this.props.products.length } Products Loaded` }/>
+      </Helmet>
+    );
+  }
+
   render () {
     return (
       <div>
+        { this.head() }
         <h1>Products</h1>
         <ul>
           { this.renderProducts() }
