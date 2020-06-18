@@ -9,7 +9,7 @@ import createStore from './helpers/createStore';
 const app = express();
 
 app.use(express.static('public'));
-app.use('/api', express.static('api'));
+app.use('/api', express.static('api', {fallthrough: false}));
 app.get('*', (req, res) => {
   console.log('Server side request for: ', req.path);
 
@@ -20,7 +20,11 @@ app.get('*', (req, res) => {
     if (promise) {
       return new Promise((resolve, reject) => {
         promise.then(resolve)
-          .catch(resolve);
+          .catch(err => {
+            console.log('*** Axios Error =>', err.message);
+
+            return resolve();
+          });
       });
     }
   });
