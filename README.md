@@ -1,4 +1,8 @@
 # poc-react-ssr
+This is proof of concept for a React SSR, SPA application.
+
+Same POC with Next.js: 
+https://github.com/FlorinGologan/poc-react-ssr-next
 
 ## Install / Run 
 ```
